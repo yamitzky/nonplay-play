@@ -7,3 +7,6 @@ GET     /                           controllers.Application.index
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+GET     /articles                   controllers.Articles.index
+GET     /articles/:article_id       controllers.Articles.show(article_id: Int)

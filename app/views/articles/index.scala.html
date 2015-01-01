@@ -1,0 +1,13 @@
+@(articles: Seq[Article])
+
+@main("Articles") {
+
+    <ul>
+    @for(article <- articles) {
+        <li>
+            <a href="@routes.Articles.show(article.id)">@article.title</a>
+        </li>
+    }
+    </ul>
+
+}
