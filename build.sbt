@@ -14,6 +14,7 @@ libraryDependencies ++= Seq(
   ws,
   "org.scalikejdbc"        %% "scalikejdbc-play-dbplugin-adapter" % "2.3.4",
   "org.skinny-framework"   %% "skinny-orm"                        % skinnyVersion,
+  "org.skinny-framework"   %% "skinny-validator"                  % skinnyVersion,
   "mysql"                  %  "mysql-connector-java"              % "5.1.32"
 )
 

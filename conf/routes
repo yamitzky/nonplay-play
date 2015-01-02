@@ -9,4 +9,6 @@ GET     /                           controllers.Application.index
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 GET     /articles                   controllers.Articles.index
+GET     /articles/new               controllers.Articles.newForm
+POST    /articles                   controllers.Articles.create
 GET     /articles/:article_id       controllers.Articles.show(article_id: Int)

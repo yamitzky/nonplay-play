@@ -1,0 +1,41 @@
+# --- Constraints
+constraint.required=必須
+constraint.min=最小値: {0}
+constraint.max=最大値: {0}
+constraint.minLength=最小文字数: {0}
+constraint.maxLength=最大文字数: {0}
+constraint.email=Email
+
+# --- Formats
+format.date=Date (''{0}'')
+format.numeric=数値
+format.real=実数
+
+# https://github.com/skinny-framework/skinny-framework/blob/develop/example/src/main/resources/messages_ja.conf を参考
+# --- Errors
+error.required=入力してください
+error.notNull=入力してください
+error.notEmpty=入力してください
+error.length={0} 文字で入力してください
+error.minLength={0} 文字以上で入力してください
+error.maxLength={0} 文字以下で入力してください
+error.minMaxLength={0} 文字以上 {1} 文字以下で入力してください
+error.numeric=整数で入力してください
+error.intValue=指定可能な範囲を超えています
+error.longValue=指定可能な範囲を超えています
+error.intMinValue={0} 以上で入力してください
+error.intMaxValue={0} 以下で入力してください
+error.intMinMaxValue={0} 以上 {1} 以下で入力してください
+error.longMinValue={0} 以上で入力してください
+error.longMaxValue={0} 以下で入力してください
+error.longMinMaxValue={0} 以上 {1} 以下で入力してください
+error.dateTimeFormat=日付と時刻を入力してください
+error.dateFormat=日付で入力してください
+error.timeFormat=時刻で入力してください
+error.same={0} を指定してください
+error.email=メールアドレス形式で入力してください
+error.past=過去の日付を指定してください
+
+error.matches={0}
+
+error.maxLengthByHalf=半角{0}、全角{1} 文字以内で入力してください

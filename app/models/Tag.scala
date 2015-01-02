@@ -19,4 +19,8 @@ object Tag extends SkinnyCRUDMapperWithId[Int, Tag] {
   override def extract(rs: WrappedResultSet, rn: ResultName[Tag]): Tag = {
     autoConstruct(rs, rn)
   }
+
+  def findByName(name: String): Option[Tag] = {
+    Tag.where('name -> name).limit(1).apply().headOption
+  }
 }

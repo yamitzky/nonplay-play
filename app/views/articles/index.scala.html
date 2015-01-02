@@ -2,6 +2,10 @@
 
 @main("Articles") {
 
+    <p>
+        <a href="@routes.Articles.newForm">新規作成</a>
+    </p>
+
     <ul>
     @for(article <- articles) {
         <li>
