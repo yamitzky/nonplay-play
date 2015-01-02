@@ -12,4 +12,6 @@ GET     /articles                   controllers.Articles.index
 GET     /articles/new               controllers.Articles.newForm
 POST    /articles                   controllers.Articles.create
 # POST    /articles                   controllers.Articles.createWithTag
+GET     /articles/:article_id/edit   controllers.Articles.edit(article_id: Int)
+POST    /articles/:article_id/update controllers.Articles.update(article_id: Int)
 GET     /articles/:article_id       controllers.Articles.show(article_id: Int)

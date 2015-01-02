@@ -1,5 +1,6 @@
 package controllers
 
+import helpers.RichModel.RichModel
 import play.api.data._
 import play.api.data.Forms._
 import skinny.validator.{NewValidation, MapValidator}
@@ -74,5 +75,15 @@ trait SkinnyController {
       case body: play.api.mvc.MultipartFormData[_] => body.asFormUrlEncoded
       case _ => Map.empty[String, Seq[String]]
     }) ++ request.queryString).mapValues(_.last)
+  }
+
+  implicit class MappableModel[T <% RichModel[_]](model: T) {
+    /**
+     * Converts case class to form.
+     * e.g. used to GET form to edit that is not POSTed yet.
+     */
+    def toForm = {
+      play.api.data.Form(ignored(null), model.toMap.mapValues(_.toString), Nil, None)
+    }
   }
 }

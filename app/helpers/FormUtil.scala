@@ -3,6 +3,7 @@ package helpers
 import play.api.data.FormError
 import play.api.data.Forms._
 import skinny.validator.MapValidator
+import RichModel._
 
 /**
  * Created by xd on 2015/01/02.

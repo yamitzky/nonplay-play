@@ -10,6 +10,7 @@ import play.api.data.Forms._
 import skinny.controller.Params
 import skinny.validator._
 import skinny._
+import helpers.RichModel._
 
 /**
  * Created by xd on 2015/01/01.
@@ -25,6 +26,11 @@ object Articles extends Controller with SkinnyController {
     "title" -> ParamType.String,
     "body" -> ParamType.String,
     "user_id" -> ParamType.Int
+  )
+
+  def updateFormStrongParameters: Seq[(String, ParamType)] = Seq(
+    "title" -> ParamType.String,
+    "body" -> ParamType.String
   )
 
   def index = Action {
@@ -50,6 +56,27 @@ object Articles extends Controller with SkinnyController {
       Redirect(routes.Articles.show(id))
     } else {
       BadRequest(views.html.articles.newForm(form.toForm))
+    }
+  }
+
+  def edit(article_id: Int) = Action {
+    Article.findById(article_id) match {
+      case Some(a) => Ok(views.html.articles.editForm(article_id, a.toForm))
+      case None    => NotFound("Not found article")
+    }
+  }
+
+  def update(article_id: Int) = Action { implicit request =>
+    Article.findById(article_id) match {
+      case Some(a) =>
+        val form = createForm.bindFromRequest
+        if (form.validate()) {
+          Article.updateById(article_id).withPermittedAttributes(Params(params).permit(updateFormStrongParameters: _*))
+          Redirect(routes.Articles.show(article_id))
+        } else {
+          BadRequest(views.html.articles.editForm(article_id, form.toForm))
+        }
+      case None => NotFound("Not found article")
     }
   }
 

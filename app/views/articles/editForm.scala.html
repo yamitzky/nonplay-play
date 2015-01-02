@@ -1,0 +1,10 @@
+@(article_id: Int, form: play.api.data.Form[_])
+
+@main("Articles") {
+    @helper.form(action = routes.Articles.update(article_id)) {
+        @helper.inputText(form("title"), '_label -> "タイトル")
+        @helper.inputText(form("body"), '_label -> "本文")
+
+        <input type="submit" value="投稿">
+    }
+}
