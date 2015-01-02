@@ -85,7 +85,7 @@ trait SkinnyController {
     }
 
     /**
-     * Converts case class to form.
+     * Converts case class to Play's Form.
      * e.g. used to GET form to edit that is not POSTed yet.
      */
     def toForm: play.api.data.Form[_] = {
